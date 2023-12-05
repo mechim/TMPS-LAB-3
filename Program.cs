@@ -112,7 +112,9 @@ class Program
         basicNotification.SendNotification("This is a basic notification.");
 
         var urgentEmailNotification = new UrgentNotificationDecorator(emailNotification);
-        urgentEmailNotification.Send("This is an urgent notification.");
+        var veryUrgent = new UrgentNotificationDecorator(urgentEmailNotification);
+        veryUrgent.Send("This is an urgent notification.");
+        
 
         var proxyNotification = new NotificationProxy(adaptedSmsNotification);
         proxyNotification.Send("This is a proxied SMS notification.");
